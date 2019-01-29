@@ -5,7 +5,7 @@ comment "flannel needs a toolchain w/ threads"
 
 config BR2_PACKAGE_FLANNEL
 	bool "flannel"
-	depends on BR2_PACKAGE_HOST_GO_ARCH_SUPPORTS
+	depends on BR2_PACKAGE_HOST_GO_TARGET_ARCH_SUPPORTS
 	depends on BR2_PACKAGE_HOST_GO_CGO_LINKING_SUPPORTS
 	depends on BR2_TOOLCHAIN_HAS_THREADS
 	help
