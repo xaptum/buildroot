@@ -61,20 +61,12 @@ endif
 # The go build system is not compatible with ccache, so use
 # HOSTCC_NOCCACHE.  See https://github.com/golang/go/issues/11685.
 HOST_GO_MAKE_ENV = \
+        GOBIN="$(@D)/bin" \
 	GOROOT_BOOTSTRAP=$(HOST_GO_BOOTSTRAP_ROOT) \
 	GOROOT_FINAL=$(HOST_GO_ROOT) \
 	GOROOT="$(@D)" \
-	GOBIN="$(@D)/bin" \
-	GOARCH=$(GO_GOARCH) \
-	$(if $(GO_GOARM),GOARM=$(GO_GOARM)) \
-	GOOS=linux \
 	CC=$(HOSTCC_NOCCACHE) \
-	CXX=$(HOSTCXX_NOCCACHE) \
-	GO_ASSUME_CROSSCOMPILING=1
-
-HOST_GO_TARGET_CC = \
-	CC_FOR_TARGET="$(TARGET_CC)" \
-	CXX_FOR_TARGET="$(TARGET_CXX)"
+	CXX=$(HOSTCXX_NOCCACHE) 
 
 define HOST_GO_BUILD_CMDS
 	cd $(@D)/src && \
