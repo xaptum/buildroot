@@ -35,6 +35,9 @@ LIBOPENSSL_CFLAGS += -DHAVE_CRYPTODEV -DUSE_CRYPTODEV_DIGESTS
 LIBOPENSSL_DEPENDENCIES += cryptodev
 endif
 
+# DO NOT UPSTREAM
+LIBOPENSSL_CFLAGS += -fPIC
+
 # Some architectures are optimized in OpenSSL
 # Doesn't work for thumb-only (Cortex-M?)
 ifeq ($(BR2_ARM_CPU_HAS_ARM),y)
