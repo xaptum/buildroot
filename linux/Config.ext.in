@@ -138,4 +138,11 @@ config BR2_LINUX_KERNEL_EXT_AUFS_VERSION
 
 endif # aufs
 
+config BR2_LINUX_KERNEL_EXT_HSS
+	select BR2_PACKAGE_HSS
+	bool "Host Socket Sharing Headers"
+
+	help
+	  Build USB HSS into the kernel.
+
 endmenu
